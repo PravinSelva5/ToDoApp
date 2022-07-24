@@ -1,0 +1,44 @@
+html {
+  height: 100vh;
+  min-width: 600px;
+  background-image: linear-gradient(130deg, #fff, #1c3f80);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.container {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  font-family: "Raleway", sans-serif;
+}
+
+.logo {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 1.5rem 0;
+  align-items: center;
+  padding: 0px;
+}
+
+.main {
+  padding: 20px;
+}
+
+form {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+}
+
+input[type="text"] {
+  height: 30px;
+  outline: 0;
+  border: none;
+  font-size: 1rem;
+}
