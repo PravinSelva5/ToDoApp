@@ -1,5 +1,14 @@
 // Selectors
 document.querySelector("form").addEventListener("submit", handleSubmitForm);
+document
+  .querySelector("ul")
+  .addEventListener("click", handleClickDeleteOrCheck);
+
+document.getElementById("clearAll").addEventListener("click", handleClearAll);
+
+function handleClearAll(e) {
+  document.querySelector("ul").innerHTML = "";
+}
 
 // Event Handler Function
 function handleSubmitForm(e) {
@@ -9,6 +18,15 @@ function handleSubmitForm(e) {
     addTodo(input.value);
   }
   input.value = "";
+}
+
+function handleClickDeleteOrCheck(e) {
+  if (e.target.name == "checkButton") {
+    checkTodo(e);
+  }
+  if (e.target.name == "deleteButton") {
+    deleteTodo(e);
+  }
 }
 
 // Helpers
@@ -23,4 +41,22 @@ function addTodo(todo) {
     `;
   li.classList.add("todo-list-item");
   ul.appendChild(li);
+}
+
+function checkTodo(e) {
+  // retrieve reference of the parent node
+  let item = e.target.parentNode;
+  if (item.style.textDecoration === "line-through") {
+    item.style.textDecoration = "none";
+  } else {
+    item.style.textDecoration = "line-through";
+  }
+}
+
+function deleteTodo(e) {
+  let item = e.target.parentNode;
+  item.addEventListener("transitionend", function () {
+    item.remove();
+  });
+  item.classList.add("todo-list-item-fall");
 }
